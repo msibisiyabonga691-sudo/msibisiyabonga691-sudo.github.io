@@ -5,75 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Kgethi!</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Quicksand', sans-serif;
             overflow: hidden;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 25%, #f8b500 50%, #ff6b9d 75%, #c44569 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 15%, #f8b500 30%, #ff6b9d 50%, #e056fd 70%, #c44569 85%, #ff6b9d 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 12s ease infinite;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
         }
-        
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
             50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .container {
             text-align: center;
             z-index: 10;
             padding: 40px;
+            position: relative;
         }
-        
+
+        /* ===== MAIN BIRTHDAY TEXT ===== */
         .birthday-text {
             font-family: 'Pacifico', cursive;
             font-size: 5rem;
             color: #fff;
             text-shadow: 
-                0 0 10px rgba(255, 105, 180, 0.8),
-                0 0 20px rgba(255, 105, 180, 0.6),
-                0 0 30px rgba(255, 105, 180, 0.4),
-                0 0 40px rgba(255, 20, 147, 0.3),
-                4px 4px 0px rgba(0,0,0,0.1);
-            animation: bounceIn 1.5s ease-out, glowPulse 2s ease-in-out infinite alternate;
-            margin-bottom: 20px;
+                0 0 10px rgba(255, 105, 180, 0.9),
+                0 0 20px rgba(255, 105, 180, 0.7),
+                0 0 30px rgba(255, 105, 180, 0.5),
+                0 0 40px rgba(255, 20, 147, 0.4),
+                0 0 50px rgba(255, 20, 147, 0.3),
+                4px 4px 0px rgba(0,0,0,0.15);
+            animation: bounceIn 1.5s ease-out, glowPulse 2s ease-in-out infinite alternate, textWiggle 4s ease-in-out infinite;
+            margin-bottom: 10px;
+            display: inline-block;
         }
-        
+
+        /* ===== NAME TEXT ===== */
         .name-text {
-            font-family: 'Pacifico', cursive;
-            font-size: 7rem;
-            background: linear-gradient(45deg, #fff, #ffe4e1, #fff0f5, #fff);
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffe4e1, #fff0f5, #ffb6c1, #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            background-size: 300% 300%;
-            animation: shimmer 3s ease infinite, float 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
-            margin: 20px 0;
+            background-size: 400% 400%;
+            animation: shimmer 3s ease infinite, float 3s ease-in-out infinite, nameScale 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 105, 180, 0.4));
+            margin: 10px 0;
+            display: inline-block;
         }
-        
+
+        /* ===== SUB TEXT ===== */
         .sub-text {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #fff;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            animation: fadeInUp 2s ease-out 0.5s both;
-            letter-spacing: 3px;
+            font-weight: 600;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+            animation: fadeInUp 2s ease-out 0.5s both, subGlow 3s ease-in-out infinite alternate;
+            letter-spacing: 4px;
+            margin-top: 15px;
         }
-        
+
+        .sub-text-2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: #fff0f5;
+            margin-top: 10px;
+            animation: fadeInUp 2.5s ease-out 1s both, float 4s ease-in-out infinite;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* ===== CAKE SECTION ===== */
+        .cake-container {
+            margin-top: 25px;
+            animation: fadeInUp 3s ease-out 1.5s both;
+        }
+
+        .cake {
+            font-size: 90px;
+            display: inline-block;
+            animation: cakeBounce 2s ease-in-out infinite, cakeRotate 8s linear infinite;
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cake:hover {
+            transform: scale(1.3) rotate(15deg);
+        }
+
+        .cake-emoji {
+            display: inline-block;
+            margin: 0 5px;
+            animation: emojiPop 2s ease-in-out infinite;
+        }
+
+        .cake-emoji:nth-child(2) { animation-delay: 0.3s; }
+        .cake-emoji:nth-child(3) { animation-delay: 0.6s; }
+        .cake-emoji:nth-child(4) { animation-delay: 0.9s; }
+        .cake-emoji:nth-child(5) { animation-delay: 1.2s; }
+
+        /* ===== AGE COUNTER ===== */
+        .age-section {
+            margin-top: 20px;
+            animation: fadeInUp 3.5s ease-out 2s both;
+        }
+
+        .age-label {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .age-number {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 2px 2px 4px rgba(0,0,0,0.3);
+            animation: agePulse 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        /* ===== WISH CARDS ===== */
+        .wishes-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 4s ease-out 2.5s both;
+        }
+
+        .wish-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: cardFloat 3s ease-in-out infinite;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .wish-card:nth-child(2) { animation-delay: 0.5s; }
+        .wish-card:nth-child(3) { animation-delay: 1s; }
+        .wish-card:nth-child(4) { animation-delay: 1.5s; }
+
+        .wish-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .wish-emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 5px;
+            animation: emojiSpin 4s linear infinite;
+        }
+
+        .wish-text {
+            font-size: 0.9rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ===== CANDLES ===== */
+        .candles-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .candle {
+            position: absolute;
+            bottom: -50px;
+            font-size: 35px;
+            animation: candleFloat 10s ease-in-out infinite;
+        }
+
+        /* ===== HEARTS ===== */
         .hearts-container {
             position: absolute;
             width: 100%;
@@ -82,36 +217,27 @@
             left: 0;
             pointer-events: none;
             overflow: hidden;
+            z-index: 2;
         }
-        
+
         .heart {
             position: absolute;
             font-size: 20px;
             animation: floatUp linear infinite;
             opacity: 0.7;
         }
-        
-        .heart:nth-child(1) { left: 10%; animation-duration: 6s; animation-delay: 0s; font-size: 25px; }
-        .heart:nth-child(2) { left: 20%; animation-duration: 8s; animation-delay: 1s; font-size: 15px; }
-        .heart:nth-child(3) { left: 30%; animation-duration: 7s; animation-delay: 2s; font-size: 30px; }
-        .heart:nth-child(4) { left: 40%; animation-duration: 9s; animation-delay: 0.5s; font-size: 20px; }
-        .heart:nth-child(5) { left: 50%; animation-duration: 6.5s; animation-delay: 1.5s; font-size: 28px; }
-        .heart:nth-child(6) { left: 60%; animation-duration: 7.5s; animation-delay: 2.5s; font-size: 18px; }
-        .heart:nth-child(7) { left: 70%; animation-duration: 8.5s; animation-delay: 0.3s; font-size: 22px; }
-        .heart:nth-child(8) { left: 80%; animation-duration: 6s; animation-delay: 1.8s; font-size: 26px; }
-        .heart:nth-child(9) { left: 90%; animation-duration: 9s; animation-delay: 0.8s; font-size: 16px; }
-        .heart:nth-child(10) { left: 5%; animation-duration: 7s; animation-delay: 3s; font-size: 24px; }
-        .heart:nth-child(11) { left: 15%; animation-duration: 8s; animation-delay: 1.2s; font-size: 19px; }
-        .heart:nth-child(12) { left: 25%; animation-duration: 6.5s; animation-delay: 2.8s; font-size: 27px; }
-        .heart:nth-child(13) { left: 35%; animation-duration: 7.5s; animation-delay: 0.6s; font-size: 21px; }
-        .heart:nth-child(14) { left: 45%; animation-duration: 8s; animation-delay: 1.9s; font-size: 23px; }
-        .heart:nth-child(15) { left: 55%; animation-duration: 6s; animation-delay: 3.5s; font-size: 17px; }
-        .heart:nth-child(16) { left: 65%; animation-duration: 9s; animation-delay: 0.2s; font-size: 29px; }
-        .heart:nth-child(17) { left: 75%; animation-duration: 7s; animation-delay: 2.1s; font-size: 20px; }
-        .heart:nth-child(18) { left: 85%; animation-duration: 8.5s; animation-delay: 1.1s; font-size: 25px; }
-        .heart:nth-child(19) { left: 95%; animation-duration: 6.5s; animation-delay: 0.9s; font-size: 18px; }
-        .heart:nth-child(20) { left: 50%; animation-duration: 10s; animation-delay: 4s; font-size: 32px; }
-        
+
+        /* ===== SPARKLES ===== */
+        .sparkles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
         .sparkle {
             position: absolute;
             width: 4px;
@@ -119,244 +245,700 @@
             background: #fff;
             border-radius: 50%;
             animation: sparkleAnim 2s ease-in-out infinite;
-            box-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ffd700;
         }
-        
-        .sparkle:nth-child(21) { top: 20%; left: 20%; animation-delay: 0s; }
-        .sparkle:nth-child(22) { top: 30%; left: 80%; animation-delay: 0.5s; }
-        .sparkle:nth-child(23) { top: 70%; left: 30%; animation-delay: 1s; }
-        .sparkle:nth-child(24) { top: 15%; left: 60%; animation-delay: 1.5s; }
-        .sparkle:nth-child(25) { top: 80%; left: 70%; animation-delay: 0.3s; }
-        .sparkle:nth-child(26) { top: 40%; left: 10%; animation-delay: 0.8s; }
-        .sparkle:nth-child(27) { top: 60%; left: 90%; animation-delay: 1.2s; }
-        .sparkle:nth-child(28) { top: 25%; left: 45%; animation-delay: 0.6s; }
-        .sparkle:nth-child(29) { top: 85%; left: 15%; animation-delay: 1.8s; }
-        .sparkle:nth-child(30) { top: 50%; left: 50%; animation-delay: 0.2s; }
-        
+
+        /* ===== BALLOONS ===== */
+        .balloons-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 4;
+            overflow: hidden;
+        }
+
         .balloon {
             position: absolute;
             bottom: -100px;
             animation: balloonRise linear infinite;
             font-size: 40px;
         }
-        
-        .balloon:nth-child(31) { left: 15%; animation-duration: 12s; animation-delay: 0s; }
-        .balloon:nth-child(32) { left: 35%; animation-duration: 14s; animation-delay: 2s; }
-        .balloon:nth-child(33) { left: 55%; animation-duration: 11s; animation-delay: 4s; }
-        .balloon:nth-child(34) { left: 75%; animation-duration: 13s; animation-delay: 1s; }
-        .balloon:nth-child(35) { left: 25%; animation-duration: 15s; animation-delay: 3s; }
-        .balloon:nth-child(36) { left: 85%; animation-duration: 12s; animation-delay: 5s; }
-        .balloon:nth-child(37) { left: 5%; animation-duration: 14s; animation-delay: 2.5s; }
-        .balloon:nth-child(38) { left: 45%; animation-duration: 11s; animation-delay: 1.5s; }
-        .balloon:nth-child(39) { left: 65%; animation-duration: 13s; animation-delay: 4.5s; }
-        .balloon:nth-child(40) { left: 95%; animation-duration: 15s; animation-delay: 0.5s; }
-        
-        .cake {
-            font-size: 80px;
-            animation: cakeBounce 2s ease-in-out infinite;
-            margin-top: 20px;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+
+        /* ===== CONFETTI ===== */
+        .confetti-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
-        
+
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
             animation: confettiFall linear infinite;
         }
-        
-        .confetti:nth-child(41) { left: 5%; background: #ff69b4; animation-duration: 5s; animation-delay: 0s; }
-        .confetti:nth-child(42) { left: 15%; background: #ffd700; animation-duration: 6s; animation-delay: 0.5s; }
-        .confetti:nth-child(43) { left: 25%; background: #ff1493; animation-duration: 4.5s; animation-delay: 1s; }
-        .confetti:nth-child(44) { left: 35%; background: #00ced1; animation-duration: 5.5s; animation-delay: 1.5s; }
-        .confetti:nth-child(45) { left: 45%; background: #ff6347; animation-duration: 4s; animation-delay: 2s; }
-        .confetti:nth-child(46) { left: 55%; background: #da70d6; animation-duration: 6s; animation-delay: 0.3s; }
-        .confetti:nth-child(47) { left: 65%; background: #ffa500; animation-duration: 5s; animation-delay: 0.8s; }
-        .confetti:nth-child(48) { left: 75%; background: #ff69b4; animation-duration: 4.5s; animation-delay: 1.3s; }
-        .confetti:nth-child(49) { left: 85%; background: #ffd700; animation-duration: 5.5s; animation-delay: 1.8s; }
-        .confetti:nth-child(50) { left: 95%; background: #ff1493; animation-duration: 6s; animation-delay: 2.3s; }
-        
-        @keyframes bounceIn {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); opacity: 1; }
+
+        /* ===== STARS ===== */
+        .stars-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
         }
-        
-        @keyframes glowPulse {
-            0% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.6), 0 0 30px rgba(255, 105, 180, 0.4); }
-            100% { text-shadow: 0 0 20px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.8), 0 0 60px rgba(255, 20, 147, 0.6), 0 0 80px rgba(255, 20, 147, 0.4); }
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-        }
-        
-        @keyframes sparkleAnim {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.5); }
-        }
-        
-        @keyframes balloonRise {
-            0% { transform: translateY(0) rotate(-5deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-120vh) rotate(5deg); opacity: 0; }
-        }
-        
-        @keyframes cakeBounce {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.1); }
-        }
-        
-        @keyframes confettiFall {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-        
+
         .star {
             position: absolute;
             color: #ffd700;
             font-size: 30px;
             animation: starTwinkle 1.5s ease-in-out infinite alternate;
         }
-        
-        .star:nth-child(51) { top: 10%; left: 10%; animation-delay: 0s; }
-        .star:nth-child(52) { top: 15%; left: 85%; animation-delay: 0.3s; }
-        .star:nth-child(53) { top: 80%; left: 20%; animation-delay: 0.6s; }
-        .star:nth-child(54) { top: 75%; left: 80%; animation-delay: 0.9s; }
-        .star:nth-child(55) { top: 5%; left: 50%; animation-delay: 1.2s; }
-        .star:nth-child(56) { top: 90%; left: 50%; animation-delay: 0.4s; }
-        .star:nth-child(57) { top: 30%; left: 5%; animation-delay: 0.7s; }
-        .star:nth-child(58) { top: 35%; left: 95%; animation-delay: 1s; }
-        
-        @keyframes starTwinkle {
-            0% { opacity: 0.3; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.2); }
+
+        /* ===== RIBBONS ===== */
+        .ribbons-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
         }
-        
+
         .ribbon {
             position: absolute;
-            width: 100px;
+            width: 120px;
             height: 20px;
-            background: linear-gradient(90deg, #ff69b4, #ffd700, #ff69b4);
+            background: linear-gradient(90deg, #ff69b4, #ffd700, #ff1493, #ffd700, #ff69b4);
+            background-size: 200% 100%;
             border-radius: 10px;
-            animation: ribbonWave 3s ease-in-out infinite;
+            animation: ribbonWave 4s ease-in-out infinite, ribbonShimmer 2s linear infinite;
         }
-        
-        .ribbon:nth-child(59) { top: 10%; left: -100px; animation-delay: 0s; }
-        .ribbon:nth-child(60) { top: 30%; right: -100px; animation-delay: 1s; }
-        .ribbon:nth-child(61) { top: 60%; left: -100px; animation-delay: 2s; }
-        .ribbon:nth-child(62) { top: 80%; right: -100px; animation-delay: 0.5s; }
-        
+
+        /* ===== FIREWORKS ===== */
+        .fireworks-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 6;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: fireworkExplode 2s ease-out infinite;
+        }
+
+        /* ===== BUTTERFLIES ===== */
+        .butterflies-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 25px;
+            animation: butterflyFly 15s linear infinite;
+        }
+
+        /* ===== FLOWER PETALS ===== */
+        .petals-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 18px;
+            animation: petalFall linear infinite;
+            opacity: 0.8;
+        }
+
+        /* ===== MUSIC NOTES ===== */
+        .music-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .music-note {
+            position: absolute;
+            font-size: 22px;
+            animation: musicFloat 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        /* ===== CROWN ===== */
+        .crown {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            animation: crownBounce 2s ease-in-out infinite, crownGlow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+            z-index: 15;
+        }
+
+        /* ===== COUNTDOWN / TIMER ===== */
+        .countdown-container {
+            margin-top: 20px;
+            animation: fadeInUp 4.5s ease-out 3s both;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .countdown-timer {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* ===== KEYFRAMES ===== */
+        @keyframes bounceIn {
+            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(5deg); }
+            70% { transform: scale(0.9) rotate(-2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 10px rgba(255, 105, 180, 0.9), 0 0 20px rgba(255, 105, 180, 0.7), 0 0 30px rgba(255, 105, 180, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 105, 180, 1), 0 0 40px rgba(255, 105, 180, 0.9), 0 0 60px rgba(255, 20, 147, 0.7), 0 0 80px rgba(255, 20, 147, 0.5); }
+        }
+
+        @keyframes textWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes nameScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes subGlow {
+            0% { text-shadow: 2px 2px 6px rgba(0,0,0,0.25); }
+            100% { text-shadow: 2px 2px 6px rgba(0,0,0,0.25), 0 0 20px rgba(255, 255, 255, 0.4); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) rotate(720deg) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.8) rotate(180deg); }
+        }
+
+        @keyframes balloonRise {
+            0% { transform: translateY(0) rotate(-8deg) scale(0.8); opacity: 0; }
+            10% { opacity: 1; transform: translateY(-10vh) rotate(-5deg) scale(1); }
+            50% { transform: translateY(-50vh) rotate(5deg) scale(1.1); }
+            90% { opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(-3deg) scale(0.9); opacity: 0; }
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-25px) scale(1.15); }
+        }
+
+        @keyframes cakeRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes emojiPop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        @keyframes agePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes emojiSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg) translateX(0); opacity: 1; }
+            25% { transform: translateY(25vh) rotate(180deg) translateX(20px); }
+            50% { transform: translateY(50vh) rotate(360deg) translateX(-20px); }
+            75% { transform: translateY(75vh) rotate(540deg) translateX(15px); }
+            100% { transform: translateY(110vh) rotate(720deg) translateX(0); opacity: 0; }
+        }
+
+        @keyframes starTwinkle {
+            0% { opacity: 0.2; transform: scale(0.6) rotate(0deg); }
+            100% { opacity: 1; transform: scale(1.3) rotate(45deg); }
+        }
+
         @keyframes ribbonWave {
-            0% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(calc(100vw + 100px)) rotate(180deg); }
-            100% { transform: translateX(0) rotate(360deg); }
+            0% { left: -150px; transform: rotate(0deg); }
+            50% { left: calc(100% + 150px); transform: rotate(180deg); }
+            100% { left: -150px; transform: rotate(360deg); }
         }
-        
+
+        @keyframes ribbonShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        @keyframes fireworkExplode {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        @keyframes butterflyFly {
+            0% { left: -50px; top: 80%; transform: rotate(0deg); }
+            20% { left: 20%; top: 60%; transform: rotate(15deg); }
+            40% { left: 40%; top: 30%; transform: rotate(-10deg); }
+            60% { left: 60%; top: 50%; transform: rotate(20deg); }
+            80% { left: 80%; top: 20%; transform: rotate(-15deg); }
+            100% { left: 110%; top: 40%; transform: rotate(0deg); }
+        }
+
+        @keyframes petalFall {
+            0% { transform: translateY(-50px) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.9; }
+            100% { transform: translateY(110vh) rotate(360deg) translateX(100px); opacity: 0; }
+        }
+
+        @keyframes musicFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.5; }
+            25% { transform: translateY(-30px) translateX(15px); opacity: 1; }
+            50% { transform: translateY(-10px) translateX(-10px); opacity: 0.7; }
+            75% { transform: translateY(-40px) translateX(5px); opacity: 1; }
+        }
+
+        @keyframes crownBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        @keyframes crownGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 1)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.5)); }
+        }
+
+        @keyframes candleFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .birthday-text { font-size: 3rem; }
-            .name-text { font-size: 4rem; }
-            .sub-text { font-size: 1.2rem; }
-            .cake { font-size: 50px; }
+            .birthday-text { font-size: 2.8rem; }
+            .name-text { font-size: 4.5rem; }
+            .sub-text { font-size: 1rem; letter-spacing: 2px; }
+            .sub-text-2 { font-size: 1rem; }
+            .cake { font-size: 55px; }
+            .wish-card { padding: 10px 15px; }
+            .wish-emoji { font-size: 1.5rem; }
+            .wish-text { font-size: 0.75rem; }
+            .age-number { font-size: 2rem; }
+            .crown { font-size: 35px; top: -45px; }
+        }
+
+        @media (max-width: 480px) {
+            .birthday-text { font-size: 2.2rem; }
+            .name-text { font-size: 3.5rem; }
+            .wishes-container { gap: 8px; }
+            .wish-card { padding: 8px 12px; }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
+    <!-- ===== FLOATING HEARTS ===== -->
     <div class="hearts-container">
-        <div class="heart">💗</div>
-        <div class="heart">💖</div>
-        <div class="heart">💝</div>
-        <div class="heart">💕</div>
-        <div class="heart">💗</div>
-        <div class="heart">💖</div>
-        <div class="heart">💝</div>
-        <div class="heart">💕</div>
-        <div class="heart">💗</div>
-        <div class="heart">💖</div>
-        <div class="heart">💝</div>
-        <div class="heart">💕</div>
-        <div class="heart">💗</div>
-        <div class="heart">💖</div>
-        <div class="heart">💝</div>
-        <div class="heart">💕</div>
-        <div class="heart">💗</div>
-        <div class="heart">💖</div>
-        <div class="heart">💝</div>
-        <div class="heart">💕</div>
-        
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        <div class="balloon">🎈</div>
-        
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        <div class="confetti"></div>
-        
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        
-        <div class="ribbon"></div>
-        <div class="ribbon"></div>
-        <div class="ribbon"></div>
-        <div class="ribbon"></div>
+        <div class="heart" style="left: 5%; animation-duration: 7s; animation-delay: 0s; font-size: 22px;">💗</div>
+        <div class="heart" style="left: 12%; animation-duration: 9s; animation-delay: 0.5s; font-size: 16px;">💖</div>
+        <div class="heart" style="left: 18%; animation-duration: 6s; animation-delay: 1.2s; font-size: 28px;">💝</div>
+        <div class="heart" style="left: 25%; animation-duration: 8s; animation-delay: 0.3s; font-size: 18px;">💕</div>
+        <div class="heart" style="left: 32%; animation-duration: 7.5s; animation-delay: 2s; font-size: 24px;">💗</div>
+        <div class="heart" style="left: 38%; animation-duration: 9.5s; animation-delay: 1s; font-size: 14px;">💖</div>
+        <div class="heart" style="left: 45%; animation-duration: 6.5s; animation-delay: 0.8s; font-size: 30px;">💝</div>
+        <div class="heart" style="left: 52%; animation-duration: 8.5s; animation-delay: 1.5s; font-size: 20px;">💕</div>
+        <div class="heart" style="left: 58%; animation-duration: 7s; animation-delay: 0.2s; font-size: 26px;">💗</div>
+        <div class="heart" style="left: 65%; animation-duration: 9s; animation-delay: 2.5s; font-size: 15px;">💖</div>
+        <div class="heart" style="left: 72%; animation-duration: 6s; animation-delay: 1.8s; font-size: 32px;">💝</div>
+        <div class="heart" style="left: 78%; animation-duration: 8s; animation-delay: 0.7s; font-size: 19px;">💕</div>
+        <div class="heart" style="left: 85%; animation-duration: 7.5s; animation-delay: 1.3s; font-size: 25px;">💗</div>
+        <div class="heart" style="left: 92%; animation-duration: 9.5s; animation-delay: 0.4s; font-size: 17px;">💖</div>
+        <div class="heart" style="left: 15%; animation-duration: 10s; animation-delay: 3s; font-size: 20px;">💝</div>
+        <div class="heart" style="left: 48%; animation-duration: 11s; animation-delay: 2.2s; font-size: 27px;">💕</div>
+        <div class="heart" style="left: 68%; animation-duration: 8.5s; animation-delay: 3.5s; font-size: 21px;">💗</div>
+        <div class="heart" style="left: 35%; animation-duration: 12s; animation-delay: 4s; font-size: 18px;">💖</div>
+        <div class="heart" style="left: 82%; animation-duration: 9s; animation-delay: 4.5s; font-size: 29px;">💝</div>
+        <div class="heart" style="left: 55%; animation-duration: 10.5s; animation-delay: 1.1s; font-size: 16px;">💕</div>
+        <div class="heart" style="left: 8%; animation-duration: 7s; animation-delay: 5s; font-size: 23px;">💗</div>
+        <div class="heart" style="left: 42%; animation-duration: 8s; animation-delay: 5.5s; font-size: 31px;">💖</div>
+        <div class="heart" style="left: 75%; animation-duration: 9s; animation-delay: 2.8s; font-size: 14px;">💝</div>
+        <div class="heart" style="left: 28%; animation-duration: 11s; animation-delay: 3.2s; font-size: 26px;">💕</div>
+        <div class="heart" style="left: 62%; animation-duration: 7.5s; animation-delay: 4.8s; font-size: 19px;">💗</div>
     </div>
-    
+
+    <!-- ===== SPARKLES ===== -->
+    <div class="sparkles-container">
+        <div class="sparkle" style="top: 8%; left: 15%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 18%; left: 75%; animation-delay: 0.3s;"></div>
+        <div class="sparkle" style="top: 35%; left: 25%; animation-delay: 0.6s;"></div>
+        <div class="sparkle" style="top: 12%; left: 55%; animation-delay: 0.9s;"></div>
+        <div class="sparkle" style="top: 65%; left: 85%; animation-delay: 1.2s;"></div>
+        <div class="sparkle" style="top: 45%; left: 5%; animation-delay: 1.5s;"></div>
+        <div class="sparkle" style="top: 78%; left: 45%; animation-delay: 1.8s;"></div>
+        <div class="sparkle" style="top: 25%; left: 90%; animation-delay: 0.2s;"></div>
+        <div class="sparkle" style="top: 55%; left: 35%; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="top: 88%; left: 65%; animation-delay: 0.8s;"></div>
+        <div class="sparkle" style="top: 5%; left: 40%; animation-delay: 1.1s;"></div>
+        <div class="sparkle" style="top: 72%; left: 20%; animation-delay: 1.4s;"></div>
+        <div class="sparkle" style="top: 38%; left: 70%; animation-delay: 1.7s;"></div>
+        <div class="sparkle" style="top: 15%; left: 95%; animation-delay: 0.1s;"></div>
+        <div class="sparkle" style="top: 82%; left: 10%; animation-delay: 0.4s;"></div>
+        <div class="sparkle" style="top: 50%; left: 50%; animation-delay: 0.7s;"></div>
+        <div class="sparkle" style="top: 28%; left: 60%; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 60%; left: 15%; animation-delay: 1.3s;"></div>
+        <div class="sparkle" style="top: 92%; left: 80%; animation-delay: 1.6s;"></div>
+        <div class="sparkle" style="top: 20%; left: 30%; animation-delay: 1.9s;"></div>
+    </div>
+
+    <!-- ===== BALLOONS ===== -->
+    <div class="balloons-container">
+        <div class="balloon" style="left: 8%; animation-duration: 13s; animation-delay: 0s;">🎈</div>
+        <div class="balloon" style="left: 18%; animation-duration: 15s; animation-delay: 1.5s;">🎈</div>
+        <div class="balloon" style="left: 28%; animation-duration: 12s; animation-delay: 3s;">🎈</div>
+        <div class="balloon" style="left: 38%; animation-duration: 14s; animation-delay: 0.5s;">🎈</div>
+        <div class="balloon" style="left: 48%; animation-duration: 16s; animation-delay: 2s;">🎈</div>
+        <div class="balloon" style="left: 58%; animation-duration: 11s; animation-delay: 4s;">🎈</div>
+        <div class="balloon" style="left: 68%; animation-duration: 13s; animation-delay: 1s;">🎈</div>
+        <div class="balloon" style="left: 78%; animation-duration: 15s; animation-delay: 2.5s;">🎈</div>
+        <div class="balloon" style="left: 88%; animation-duration: 12s; animation-delay: 3.5s;">🎈</div>
+        <div class="balloon" style="left: 95%; animation-duration: 14s; animation-delay: 0.8s;">🎈</div>
+        <div class="balloon" style="left: 3%; animation-duration: 17s; animation-delay: 5s;">🎈</div>
+        <div class="balloon" style="left: 53%; animation-duration: 13s; animation-delay: 4.5s;">🎈</div>
+        <div class="balloon" style="left: 73%; animation-duration: 16s; animation-delay: 1.2s;">🎈</div>
+        <div class="balloon" style="left: 33%; animation-duration: 14s; animation-delay: 5.5s;">🎈</div>
+        <div class="balloon" style="left: 13%; animation-duration: 12s; animation-delay: 6s;">🎈</div>
+    </div>
+
+    <!-- ===== CONFETTI ===== -->
+    <div class="confetti-container">
+        <div class="confetti" style="left: 3%; background: #ff69b4; animation-duration: 5s; animation-delay: 0s;"></div>
+        <div class="confetti" style="left: 8%; background: #ffd700; animation-duration: 6s; animation-delay: 0.3s;"></div>
+        <div class="confetti" style="left: 13%; background: #ff1493; animation-duration: 4.5s; animation-delay: 0.6s;"></div>
+        <div class="confetti" style="left: 18%; background: #00ced1; animation-duration: 5.5s; animation-delay: 0.9s;"></div>
+        <div class="confetti" style="left: 23%; background: #ff6347; animation-duration: 4s; animation-delay: 1.2s;"></div>
+        <div class="confetti" style="left: 28%; background: #da70d6; animation-duration: 6s; animation-delay: 1.5s;"></div>
+        <div class="confetti" style="left: 33%; background: #ffa500; animation-duration: 5s; animation-delay: 1.8s;"></div>
+        <div class="confetti" style="left: 38%; background: #ff69b4; animation-duration: 4.5s; animation-delay: 2.1s;"></div>
+        <div class="confetti" style="left: 43%; background: #ffd700; animation-duration: 5.5s; animation-delay: 2.4s;"></div>
+        <div class="confetti" style="left: 48%; background: #ff1493; animation-duration: 6s; animation-delay: 2.7s;"></div>
+        <div class="confetti" style="left: 53%; background: #00ced1; animation-duration: 4s; animation-delay: 3s;"></div>
+        <div class="confetti" style="left: 58%; background: #ff6347; animation-duration: 5s; animation-delay: 0.2s;"></div>
+        <div class="confetti" style="left: 63%; background: #da70d6; animation-duration: 6s; animation-delay: 0.5s;"></div>
+        <div class="confetti" style="left: 68%; background: #ffa500; animation-duration: 4.5s; animation-delay: 0.8s;"></div>
+        <div class="confetti" style="left: 73%; background: #ff69b4; animation-duration: 5.5s; animation-delay: 1.1s;"></div>
+        <div class="confetti" style="left: 78%; background: #ffd700; animation-duration: 4s; animation-delay: 1.4s;"></div>
+        <div class="confetti" style="left: 83%; background: #ff1493; animation-duration: 6s; animation-delay: 1.7s;"></div>
+        <div class="confetti" style="left: 88%; background: #00ced1; animation-duration: 5s; animation-delay: 2s;"></div>
+        <div class="confetti" style="left: 93%; background: #ff6347; animation-duration: 4.5s; animation-delay: 2.3s;"></div>
+        <div class="confetti" style="left: 98%; background: #da70d6; animation-duration: 5.5s; animation-delay: 2.6s;"></div>
+    </div>
+
+    <!-- ===== STARS ===== -->
+    <div class="stars-container">
+        <div class="star" style="top: 5%; left: 8%; animation-delay: 0s;">⭐</div>
+        <div class="star" style="top: 12%; left: 88%; animation-delay: 0.3s;">✨</div>
+        <div class="star" style="top: 75%; left: 15%; animation-delay: 0.6s;">⭐</div>
+        <div class="star" style="top: 70%; left: 82%; animation-delay: 0.9s;">✨</div>
+        <div class="star" style="top: 3%; left: 50%; animation-delay: 1.2s;">⭐</div>
+        <div class="star" style="top: 88%; left: 48%; animation-delay: 0.4s;">✨</div>
+        <div class="star" style="top: 28%; left: 3%; animation-delay: 0.7s;">⭐</div>
+        <div class="star" style="top: 32%; left: 95%; animation-delay: 1s;">✨</div>
+        <div class="star" style="top: 45%; left: 12%; animation-delay: 1.3s;">⭐</div>
+        <div class="star" style="top: 55%; left: 78%; animation-delay: 1.6s;">✨</div>
+        <div class="star" style="top: 18%; left: 35%; animation-delay: 0.2s;">⭐</div>
+        <div class="star" style="top: 60%; left: 55%; animation-delay: 0.5s;">✨</div>
+        <div class="star" style="top: 85%; left: 25%; animation-delay: 0.8s;">⭐</div>
+        <div class="star" style="top: 8%; left: 70%; animation-delay: 1.1s;">✨</div>
+        <div class="star" style="top: 40%; left: 88%; animation-delay: 1.4s;">⭐</div>
+        <div class="star" style="top: 65%; left: 5%; animation-delay: 1.7s;">✨</div>
+    </div>
+
+    <!-- ===== RIBBONS ===== -->
+    <div class="ribbons-container">
+        <div class="ribbon" style="top: 8%; animation-delay: 0s;"></div>
+        <div class="ribbon" style="top: 22%; animation-delay: 1.5s;"></div>
+        <div class="ribbon" style="top: 38%; animation-delay: 3s;"></div>
+        <div class="ribbon" style="top: 55%; animation-delay: 0.8s;"></div>
+        <div class="ribbon" style="top: 72%; animation-delay: 2.3s;"></div>
+        <div class="ribbon" style="top: 88%; animation-delay: 4s;"></div>
+    </div>
+
+    <!-- ===== FIREWORKS ===== -->
+    <div class="fireworks-container">
+        <div class="firework" style="top: 15%; left: 20%; background: #ff69b4; animation-delay: 0s;"></div>
+        <div class="firework" style="top: 10%; left: 70%; background: #ffd700; animation-delay: 1.5s;"></div>
+        <div class="firework" style="top: 25%; left: 45%; background: #ff1493; animation-delay: 3s;"></div>
+        <div class="firework" style="top: 18%; left: 85%; background: #00ced1; animation-delay: 0.8s;"></div>
+        <div class="firework" style="top: 30%; left: 10%; background: #da70d6; animation-delay: 2.2s;"></div>
+        <div class="firework" style="top: 12%; left: 55%; background: #ff6347; animation-delay: 3.5s;"></div>
+        <div class="firework" style="top: 22%; left: 30%; background: #ffa500; animation-delay: 4s;"></div>
+        <div class="firework" style="top: 8%; left: 90%; background: #ff69b4; animation-delay: 1s;"></div>
+    </div>
+
+    <!-- ===== BUTTERFLIES ===== -->
+    <div class="butterflies-container">
+        <div class="butterfly" style="animation-duration: 18s; animation-delay: 0s;">🦋</div>
+        <div class="butterfly" style="animation-duration: 20s; animation-delay: 5s;">🦋</div>
+        <div class="butterfly" style="animation-duration: 16s; animation-delay: 10s;">🦋</div>
+        <div class="butterfly" style="animation-duration: 22s; animation-delay: 3s;">🦋</div>
+        <div class="butterfly" style="animation-duration: 19s; animation-delay: 8s;">🦋</div>
+    </div>
+
+    <!-- ===== FLOWER PETALS ===== -->
+    <div class="petals-container">
+        <div class="petal" style="left: 5%; animation-duration: 8s; animation-delay: 0s;">🌸</div>
+        <div class="petal" style="left: 15%; animation-duration: 10s; animation-delay: 1s;">🌺</div>
+        <div class="petal" style="left: 25%; animation-duration: 7s; animation-delay: 2s;">🌸</div>
+        <div class="petal" style="left: 35%; animation-duration: 9s; animation-delay: 0.5s;">🌺</div>
+        <div class="petal" style="left: 45%; animation-duration: 8.5s; animation-delay: 1.5s;">🌸</div>
+        <div class="petal" style="left: 55%; animation-duration: 11s; animation-delay: 2.5s;">🌺</div>
+        <div class="petal" style="left: 65%; animation-duration: 7.5s; animation-delay: 0.8s;">🌸</div>
+        <div class="petal" style="left: 75%; animation-duration: 9.5s; animation-delay: 1.8s;">🌺</div>
+        <div class="petal" style="left: 85%; animation-duration: 8s; animation-delay: 3s;">🌸</div>
+        <div class="petal" style="left: 95%; animation-duration: 10s; animation-delay: 0.3s;">🌺</div>
+        <div class="petal" style="left: 10%; animation-duration: 9s; animation-delay: 4s;">🌸</div>
+        <div class="petal" style="left: 50%; animation-duration: 8s; animation-delay: 3.5s;">🌺</div>
+        <div class="petal" style="left: 80%; animation-duration: 10s; animation-delay: 2.2s;">🌸</div>
+        <div class="petal" style="left: 30%; animation-duration: 7s; animation-delay: 4.5s;">🌺</div>
+        <div class="petal" style="left: 60%; animation-duration: 11s; animation-delay: 1.2s;">🌸</div>
+    </div>
+
+    <!-- ===== MUSIC NOTES ===== -->
+    <div class="music-container">
+        <div class="music-note" style="top: 20%; left: 15%; animation-delay: 0s;">🎵</div>
+        <div class="music-note" style="top: 15%; left: 75%; animation-delay: 1s;">🎶</div>
+        <div class="music-note" style="top: 40%; left: 25%; animation-delay: 2s;">🎵</div>
+        <div class="music-note" style="top: 30%; left: 60%; animation-delay: 0.5s;">🎶</div>
+        <div class="music-note" style="top: 55%; left: 80%; animation-delay: 1.5s;">🎵</div>
+        <div class="music-note" style="top: 70%; left: 10%; animation-delay: 2.5s;">🎶</div>
+        <div class="music-note" style="top: 50%; left: 45%; animation-delay: 0.8s;">🎵</div>
+        <div class="music-note" style="top: 65%; left: 70%; animation-delay: 1.8s;">🎶</div>
+    </div>
+
+    <!-- ===== CANDLES ===== -->
+    <div class="candles-container">
+        <div class="candle" style="left: 10%; animation-duration: 12s; animation-delay: 0s;">🕯️</div>
+        <div class="candle" style="left: 25%; animation-duration: 14s; animation-delay: 2s;">🕯️</div>
+        <div class="candle" style="left: 40%; animation-duration: 11s; animation-delay: 4s;">🕯️</div>
+        <div class="candle" style="left: 55%; animation-duration: 13s; animation-delay: 1s;">🕯️</div>
+        <div class="candle" style="left: 70%; animation-duration: 15s; animation-delay: 3s;">🕯️</div>
+        <div class="candle" style="left: 85%; animation-duration: 12s; animation-delay: 5s;">🕯️</div>
+        <div class="candle" style="left: 5%; animation-duration: 16s; animation-delay: 1.5s;">🕯️</div>
+        <div class="candle" style="left: 95%; animation-duration: 14s; animation-delay: 4.5s;">🕯️</div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
     <div class="container">
+        <div class="crown">👑</div>
         <div class="birthday-text">Happy Birthday</div>
         <div class="name-text">Kgethi</div>
-        <div class="sub-text">Wishing you a day filled with love, joy & sparkle! ✨</div>
-        <div class="cake">🎂🎉🎁</div>
+        <div class="sub-text">Wishing you a day filled with love, joy & endless sparkle!</div>
+        <div class="sub-text-2">May all your dreams come true today and always 💫</div>
+
+        <div class="cake-container">
+            <div class="cake">
+                <span class="cake-emoji">🎂</span>
+                <span class="cake-emoji">🎉</span>
+                <span class="cake-emoji">🎁</span>
+                <span class="cake-emoji">🎊</span>
+                <span class="cake-emoji">🥳</span>
+            </div>
+        </div>
+
+        <div class="age-section">
+            <div class="age-label">Celebrating another year of fabulous you!</div>
+            <div class="age-number">🎂</div>
+        </div>
+
+        <div class="wishes-container">
+            <div class="wish-card">
+                <span class="wish-emoji">💕</span>
+                <span class="wish-text">Love</span>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">✨</span>
+                <span class="wish-text">Sparkle</span>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🌸</span>
+                <span class="wish-text">Beauty</span>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🌟</span>
+                <span class="wish-text">Success</span>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">💎</span>
+                <span class="wish-text">Wealth</span>
+            </div>
+            <div class="wish-card">
+                <span class="wish-emoji">🦋</span>
+                <span class="wish-text">Freedom</span>
+            </div>
+        </div>
+
+        <div class="countdown-container">
+            <div class="countdown-label">Time to Celebrate</div>
+            <div class="countdown-timer" id="countdown">🎈 Today is YOUR day! 🎈</div>
+        </div>
     </div>
+
+    <script>
+        // Dynamic sparkle generator
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'absolute';
+            sparkle.style.width = Math.random() * 6 + 2 + 'px';
+            sparkle.style.height = sparkle.style.width;
+            sparkle.style.background = '#fff';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.boxShadow = '0 0 10px #fff, 0 0 20px #ff69b4';
+            sparkle.style.animation = 'sparkleAnim ' + (Math.random() * 2 + 1) + 's ease-in-out';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '3';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        setInterval(createSparkle, 300);
+
+        // Mouse trail effect
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.style.position = 'absolute';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            trail.style.width = '8px';
+            trail.style.height = '8px';
+            trail.style.background = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+            trail.style.borderRadius = '50%';
+            trail.style.pointerEvents = 'none';
+            trail.style.zIndex = '100';
+            trail.style.boxShadow = '0 0 10px currentColor';
+            trail.style.animation = 'sparkleAnim 1s ease-out forwards';
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 1000);
+        });
+
+        // Click burst effect
+        document.addEventListener('click', (e) => {
+            const colors = ['#ff69b4', '#ffd700', '#ff1493', '#00ced1', '#da70d6', '#ff6347', '#ffa500'];
+            for (let i = 0; i < 12; i++) {
+                const burst = document.createElement('div');
+                burst.style.position = 'absolute';
+                burst.style.left = e.pageX + 'px';
+                burst.style.top = e.pageY + 'px';
+                burst.style.width = '10px';
+                burst.style.height = '10px';
+                burst.style.background = colors[Math.floor(Math.random() * colors.length)];
+                burst.style.borderRadius = '50%';
+                burst.style.pointerEvents = 'none';
+                burst.style.zIndex = '100';
+                const angle = (i / 12) * Math.PI * 2;
+                const velocity = 100;
+                burst.style.transition = 'all 1s ease-out';
+                document.body.appendChild(burst);
+
+                setTimeout(() => {
+                    burst.style.transform = `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity}px) scale(0)`;
+                    burst.style.opacity = '0';
+                }, 10);
+
+                setTimeout(() => {
+                    burst.remove();
+                }, 1100);
+            }
+        });
+    </script>
 </body>
 </html>
